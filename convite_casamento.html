@@ -2,82 +2,243 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Uma pergunta...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Um convite...</title>
+
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{font-family:Arial,Helvetica,sans-serif;background:#05050b;color:#fff;display:flex;align-items:center;justify-content:center}
-.bg{position:absolute;inset:0;background:
-radial-gradient(circle at 20% 20%,#43256855 0,transparent 30%),
-radial-gradient(circle at 80% 75%,#153c5c55 0,transparent 32%),
-linear-gradient(135deg,#020208,#0d0a18 48%,#02070b);
-animation:drift 10s ease-in-out infinite alternate}
-@keyframes drift{to{transform:scale(1.08) rotate(1deg);filter:hue-rotate(12deg)}}
-.stars{position:absolute;inset:0;background-image:radial-gradient(#ffffff99 1px,transparent 1px);background-size:90px 90px;opacity:.22;animation:stars 20s linear infinite}
-@keyframes stars{to{background-position:90px 90px}}
-.card{position:relative;width:min(91%,570px);padding:54px 30px 46px;text-align:center;border:1px solid #ffffff20;border-radius:28px;background:#ffffff09;backdrop-filter:blur(15px);box-shadow:0 0 70px #000,0 0 35px #7d4cff18;animation:appear 1.2s ease}
-@keyframes appear{from{opacity:0;transform:translateY(25px) scale(.96)}to{opacity:1;transform:none}}
-.whisper{font-size:11px;letter-spacing:5px;color:#aaa6ba;text-transform:uppercase;margin-bottom:25px}
-h1{font-size:clamp(34px,8vw,60px);margin:0 0 18px;letter-spacing:-2px;text-shadow:0 0 25px #a780ff66}
-p{color:#aaa9b7;font-size:16px;line-height:1.6;margin:0 auto 30px;max-width:450px}
-button{border:1px solid #ffffff35;background:linear-gradient(135deg,#ffffff18,#ffffff08);color:white;padding:14px 31px;border-radius:999px;font-size:15px;cursor:pointer;transition:.3s;box-shadow:0 0 25px #8d5cff18;margin:5px}
-button:hover{transform:translateY(-3px);box-shadow:0 0 35px #8d5cff55;border-color:#ffffff70}
-.hidden{display:none}
-.fade{animation:fade .7s ease}
-@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.answer{margin-top:24px;color:#ddd;font-size:18px;line-height:1.7}
-.small{font-size:13px;color:#8f8d99;margin-top:22px}
-.heart{font-size:30px;display:block;margin-bottom:15px;text-shadow:0 0 20px #fff}
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(67, 40, 95, .35), transparent 35%),
+        radial-gradient(circle at 80% 75%, rgba(90, 50, 120, .30), transparent 35%),
+        linear-gradient(135deg, #08070d, #17101f, #08070d);
+    color: white;
+}
+
+.estrelas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .45;
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 90px 90px;
+    animation: estrelas 20s linear infinite;
+}
+
+@keyframes estrelas {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(90px);
+    }
+}
+
+.card {
+    width: min(90%, 520px);
+    padding: 45px 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 28px;
+    background: rgba(10, 8, 15, .72);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 70px rgba(0,0,0,.55);
+    animation: aparecer .8s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.sussurro {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa0b8;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(28px, 7vw, 44px);
+    margin: 0 0 20px;
+    line-height: 1.1;
+}
+
+p {
+    color: #c8c1d0;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.destaque {
+    color: white;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 22px;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 999px;
+    background: white;
+    color: #151018;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,.18);
+}
+
+button.secundario {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,.25);
+    margin-left: 8px;
+}
+
+.escondido {
+    display: none;
+}
+
+.rodape {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #77717d;
+}
 </style>
 </head>
+
 <body>
-<div class="bg"></div><div class="stars"></div>
 
-<main class="card" id="card">
-  <section id="screen1">
-    <div class="whisper">uma pergunta ficou no ar</div>
-    <h1>Já mudou de ideia?</h1>
-    <p>Tenho uma pergunta para te fazer...<br>mas acho que você vai precisar clicar para descobrir.</p>
-    <button onclick="showInvite()">Descobrir</button>
-  </section>
+<div class="estrelas"></div>
 
-  <section id="screen2" class="hidden">
-    <div class="whisper">agora você já sabe</div>
-    <h1>Então...</h1>
-    <p>Surgiu um convite que eu queria fazer para você.</p>
-    <div class="answer">Você toparia <strong>ir comigo a um casamento?</strong> 👀</div>
-    <p class="small">Prometo que pode ser mais divertido do que parece.</p>
-    <button onclick="accepted()">Eu topo 🤍</button>
-    <button onclick="thinking()">Vou pensar...</button>
-  </section>
+<main class="card">
 
-  <section id="screen3" class="hidden">
-    <div class="heart">🤍</div>
-    <h1>Sabia.</h1>
-    <p>Agora só falta a gente combinar os detalhes.</p>
-    <div class="answer">Acho que vai ser uma noite especial. ✨</div>
-  </section>
+    <!-- PRIMEIRA TELA -->
+    <section id="inicio">
 
-  <section id="screen4" class="hidden">
-    <div class="whisper">sem pressão</div>
-    <h1>Justo. 👀</h1>
-    <p>Pensa com carinho... eu ainda vou esperar pela resposta.</p>
-    <button onclick="back()">Voltar</button>
-  </section>
+        <div class="sussurro">
+            uma pequena pergunta...
+        </div>
+
+        <h1>
+            Tenho uma pergunta<br>
+            pra te fazer.
+        </h1>
+
+        <p>
+            Mas acho que você vai precisar
+            <span class="destaque">clicar para descobrir.</span>
+        </p>
+
+        <button onclick="mostrarConvite()">
+            Descobrir
+        </button>
+
+    </section>
+
+
+    <!-- SEGUNDA TELA -->
+    <section id="convite" class="escondido">
+
+        <div class="sussurro">
+            então... agora você já sabe 👀
+        </div>
+
+        <h1>
+            Surgiu um convite.
+        </h1>
+
+        <p>
+            E eu queria muito saber se você
+            toparia ir comigo.
+        </p>
+
+        <p class="destaque">
+            Um casamento. 🤍
+        </p>
+
+        <p>
+            Prometo que pode ser mais divertido
+            do que parece.
+        </p>
+
+        <button onclick="aceitou()">
+            Aceito 🤍
+        </button>
+
+        <button class="secundario" onclick="pensar()">
+            Vou pensar...
+        </button>
+
+        <div id="resposta"></div>
+
+    </section>
+
+    <div class="rodape">
+        talvez esse convite seja mais importante do que parece.
+    </div>
+
 </main>
 
+
 <script>
-function swap(hide,show){
- document.getElementById(hide).classList.add('hidden');
- const s=document.getElementById(show);
- s.classList.remove('hidden');
- s.classList.add('fade');
+
+function mostrarConvite() {
+
+    document.getElementById("inicio").style.display = "none";
+
+    document.getElementById("convite").style.display = "block";
 }
-function showInvite(){swap('screen1','screen2')}
-function accepted(){swap('screen2','screen3')}
-function thinking(){swap('screen2','screen4')}
-function back(){swap('screen4','screen2')}
+
+
+function aceitou() {
+
+    document.getElementById("resposta").innerHTML = `
+        <p style="margin-top:25px; color:white;">
+            Sabia que você não ia recusar. 😏🤍
+        </p>
+    `;
+}
+
+
+function pensar() {
+
+    document.getElementById("resposta").innerHTML = `
+        <p style="margin-top:25px;">
+            Tudo bem... vou fingir que não estou ansioso pela resposta. 👀
+        </p>
+    `;
+}
+
 </script>
+
 </body>
 </html>
